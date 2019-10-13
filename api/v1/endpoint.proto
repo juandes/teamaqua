@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+package api;
+
+import "google/protobuf/timestamp.proto";
+
+service DrinkWater {
+  rpc LogSplash(Splash) returns (LogSplashResponse);
+  rpc WaterConsumed(Since) returns (WaterConsumedSince);
+}
+
+message LogSplashResponse {
+	bool ok = 1;
+	string error = 2;
+}
+
+message Splash {
+	google.protobuf.Timestamp ts = 1;
+	int32 amount = 2;
+}
+
+message Since {
+	google.protobuf.Timestamp ts = 1;
+}
+
+message WaterConsumedSince {
+	int32 amount = 1;
+}
