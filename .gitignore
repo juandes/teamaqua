@@ -3,3 +3,4 @@ Makefile
 build/
 notes
 secrets/*
+.DS_Store
