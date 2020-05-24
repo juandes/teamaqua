@@ -39,7 +39,7 @@ First, there’s me, logging the water data in Fitbit and sending it to their se
 
 In the route below Archie, there’s BigQuery, who provides data to Data Studio for me to analyze it.
 
-For more information check out the blog post detailing the system at [Team Aqua]([https://link](https://wanderdata.com/water-platform/))
+For more information check out the blog post detailing the system at [Team Aqua](https://wanderdata.com/water-platform/).
 
 
 ## The repo
