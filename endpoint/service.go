@@ -23,6 +23,7 @@ func NewService(u *bigquery.Uploader) *Service {
 	}
 }
 
+// LogSplash writes a Splash event to BigQuery
 func (s *Service) LogSplash(ctx context.Context, in *pb.Splash) (*pb.LogSplashResponse, error) {
 	log.Println(in)
 
@@ -38,6 +39,7 @@ func (s *Service) LogSplash(ctx context.Context, in *pb.Splash) (*pb.LogSplashRe
 	}, nil
 }
 
+// WaterConsumed checks the amount of water consumed since time in.
 func (s *Service) WaterConsumed(ctx context.Context, in *pb.Since) (*pb.WaterConsumedSince, error) {
 	var waterConsumed int32
 	since, err := ptypes.Timestamp(in.Ts)

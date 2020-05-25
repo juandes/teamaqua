@@ -7,7 +7,6 @@ client = fitbit.Fitbit(os.environ['FITBIT_KEY'], os.environ['FITBIT_SECRET'],
                        system='en_DE')
 
 
-
 summary = client.foods_log_water(date='today')
 print(summary['water'])
 

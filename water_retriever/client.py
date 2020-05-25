@@ -1,9 +1,9 @@
 import grpc
 import fitbit
 import os
-import sys
 import time
 import logging
+
 import app.api.v1.endpoint_pb2 as endpoint_pb2
 import app.api.v1.endpoint_pb2_grpc as endpoint_pb2_grpc
 
@@ -14,7 +14,8 @@ waiting_time = 60 * 30
 
 def run():
     starttime = time.time()
-    # keep track of the last water consumption id
+
+    # Keep track of the last water consumption id.
     last_log_id = 0
 
     client = fitbit.Fitbit(os.environ['FITBIT_KEY'], os.environ['FITBIT_SECRET'],
@@ -29,7 +30,7 @@ def run():
             result = client.foods_log_water(date='today').get('water', None)
 
             print(result)
-            # if no water has been consumed...
+            # If no water has been consumed...
             if result is None or len(result) == 0 or result[-1]['logId'] == last_log_id:
                 time.sleep(waiting_time -
                            ((time.time() - starttime) % waiting_time))
@@ -43,7 +44,7 @@ def run():
                     amount=result[-1]['amount'],
                     ts=timestamp
                 ))
-                print("Splash logged. Response: {}".format(response))
+                print('Splash logged. Response: {}'.format(response))
             except Exception as e:
                 print(e)
 
